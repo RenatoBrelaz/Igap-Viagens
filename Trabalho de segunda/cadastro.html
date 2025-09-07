@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro - Igapó Viagens</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* Container do formulário */
+    .login {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 80vh;
+      padding: 2rem 1rem;
+      background: url('imagens/manaus4.jpg') no-repeat center center;
+      background-size: cover;
+    }
+
+    .login-container {
+      background: rgba(255, 255, 255, 0.9);
+      padding: 2rem;
+      border-radius: 12px;
+      max-width: 400px;
+      width: 100%;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+      text-align: center;
+    }
+
+    .login-container img {
+      width: 100px;
+      margin-bottom: 1rem;
+    }
+
+    .form-group {
+      margin-bottom: 1rem;
+      text-align: left;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 0.3rem;
+      font-weight: bold;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 0.5rem;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      outline: none;
+    }
+
+    .form-group button {
+      width: 100%;
+      padding: 0.7rem;
+      border: none;
+      border-radius: 6px;
+      background-color: #16a34a;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .form-group button:hover {
+      background-color: #15803d;
+    }
+
+    p {
+      margin-top: 0.5rem;
+      font-size: 0.9rem;
+    }
+
+    p a {
+      color: #16a34a;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    p a:hover {
+      text-decoration: underline;
+    }
+
+    /* Responsividade */
+    @media (max-width: 500px) {
+      .login-container {
+        padding: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+ 
+  <nav class="navbar">
+    <div class="logo">Igapó Viagens</div>
+    <ul class="nav-links">
+      <li><a href="index.html">Início</a></li>
+      <li><a href="#destinos" class="btn">Destinos</a></li>
+      <li><a href="form.html">Agendamento</a></li>
+      <li><a href="login.html">Login</a></li>
+    </ul>
+  </nav>
+
+  <section class="login">
+    <div class="login-container">
+      <div class="logo">
+        <img src="imagens/TUPAM.png" alt="Logotipo da Empresa">
+      </div>
+      <form id="register-form" action="#" method="POST">
+        <div class="form-group">
+          <label for="firstName">Nome</label>
+          <input type="text" id="firstName" name="firstName" placeholder="Digite seu nome" required>
+        </div>
+        <div class="form-group">
+          <label for="lastName">Sobrenome</label>
+          <input type="text" id="lastName" name="lastName" placeholder="Digite seu sobrenome" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="Digite seu e-mail" required>
+        </div>
+        <div class="form-group">
+          <label for="password">Senha</label>
+          <input type="password" id="password" name="password" placeholder="Digite sua senha" required>
+        </div>
+        <div class="form-group">
+          <label for="confirmPassword">Confirmar Senha</label>
+          <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirme sua senha" required>
+        </div>
+        <div class="form-group">
+          <button type="submit">Registrar</button>
+        </div>
+      </form>
+      <p>Já tem uma conta? <a href="login.html">Faça login</a></p>
+      <p id="message-box" style="margin-top: 1rem;"></p>
+    </div>
+  </section>
+
+
+  <footer class="rodape">
+    <div>
+     <p>&copy; 2025 Igapó Viagens. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('register-form').addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      const firstName = document.getElementById('firstName').value.trim();
+      const lastName = document.getElementById('lastName').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const password = document.getElementById('password').value;
+      const confirmPassword = document.getElementById('confirmPassword').value;
+
+      const messageBox = document.getElementById('message-box');
+
+      if (password !== confirmPassword) {
+        messageBox.textContent = 'As senhas não coincidem.';
+        messageBox.style.color = '#dc2626';
+        return;
+      }
+
+      const user = { firstName, lastName, email, password };
+      localStorage.setItem('user', JSON.stringify(user));
+
+      messageBox.textContent = 'Cadastro realizado com sucesso! Redirecionando para login...';
+      messageBox.style.color = '#16a34a';
+
+      setTimeout(() => {
+        window.location.href = 'login.html';
+      }, 2000);
+    });
+  </script>
+</body>
+</html>
