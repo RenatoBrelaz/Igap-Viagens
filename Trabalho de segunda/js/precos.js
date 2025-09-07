@@ -31,7 +31,7 @@ function renderTrips(tripsToRender) {
     const tripCard = document.createElement('div');
     tripCard.className = 'trip-card';
 
-    tripCard.innerHTML = `
+   tripCard.innerHTML = `
       <div class="trip-details">
         <h3>${trip.route}</h3>
         <p><strong>Embarcação:</strong> ${trip.boatType}</p>
@@ -39,7 +39,10 @@ function renderTrips(tripsToRender) {
       </div>
       <div class="trip-price">R$ ${trip.price.toFixed(2).replace('.', ',')}</div>
       <div>
-        <button class="btn-book">Reservar Agora</button>
+        <button class="btn-book" 
+          onclick="window.location.href='pagamento.html?route=${encodeURIComponent(trip.route)}&date=${trip.date}&boatType=${encodeURIComponent(trip.boatType)}&price=${trip.price}'">
+          Reservar Agora
+        </button>
       </div>
     `;
     resultsContainer.appendChild(tripCard);

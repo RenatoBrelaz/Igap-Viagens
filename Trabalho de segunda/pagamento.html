@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pagamento - PIX</title>
+  <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
+  <link rel="stylesheet" href="css/login.css">
+  <style>
+    .payment-card {
+      max-width: 400px;
+      margin: 40px auto;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+      padding: 20px;
+      text-align: center;
+    }
+    .btn-copy {
+      margin-top: 15px;
+      background: #0a3611;
+      color: #fff;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .btn-copy:hover {
+      background: #227436;
+    }
+    #copy-msg {
+      margin-top: 10px;
+      color: green;
+      font-size: 14px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <!-- Cabeçalho -->
+  <header>
+    <nav class="navbar">
+      <div class="logo">
+        <h3>Igapó Viagens</h3>
+      </div>
+      <ul class="menu">
+        <li><a href="index.html">Início</a></li>
+        <li><a href="login.html">Login</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section>
+    <div class="payment-card">
+      <h2>Pagamento via PIX</h2>
+      <p id="trip-info"></p>
+      <p id="price" class="font-bold"></p>
+      
+      <div class="flex justify-center">
+        <canvas id="qrcode"></canvas>
+      </div>
+
+      <button class="btn-copy" id="copyPix">Copiar Chave PIX</button>
+      <p id="copy-msg">Chave PIX copiada!</p>
+
+      <p style="margin-top:15px; font-size:14px; color:#555;">
+        Escaneie o QR Code no seu app bancário ou copie a chave PIX para concluir o pagamento.
+      </p>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-content">
+      <p>&copy; 2025 Igapó Viagens. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const route = urlParams.get('route');
+    const date = urlParams.get('date');
+    const boatType = urlParams.get('boatType');
+    const price = urlParams.get('price');
+
+    document.getElementById('trip-info').innerText = `${route} - ${boatType} em ${new Date(date).toLocaleDateString('pt-BR')}`;
+    document.getElementById('price').innerText = `Valor: R$ ${parseFloat(price).toFixed(2).replace('.', ',')}`;
+
+    const pixKey = "seu-email@dominio.com";
+    const pixMessage = `Pagamento passagem ${route}`;
+
+
+    const payload = `00020126360014BR.GOV.BCB.PIX0114${pixKey}520400005303986540${price}5802BR5913Igapo Viagens6009Manaus62070503***6304ABCD`;
+
+
+    QRCode.toCanvas(document.getElementById('qrcode'), payload, { width: 250 }, function (error) {
+      if (error) console.error(error);
+    });
+
+    document.getElementById('copyPix').addEventListener('click', () => {
+      navigator.clipboard.writeText(pixKey).then(() => {
+        const msg = document.getElementById('copy-msg');
+        msg.style.display = 'block';
+        setTimeout(() => msg.style.display = 'none', 2000);
+      });
+    });
+  </script>
+</body>
+</html>
