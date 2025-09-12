@@ -1,0 +1,97 @@
+.results-main {
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
+.results-container {
+    width: 100%;
+    max-width: 900px;
+    background-color: #f9f9f9;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    box-sizing: border-box;
+}
+
+.results-container h2 {
+    text-align: center;
+    color: #004d40;
+    margin-bottom: 25px;
+    font-size: 2em;
+    font-weight: 700;
+}
+
+.table-container {
+    overflow-x: auto;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+#results-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+#results-table th, 
+#results-table td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+#results-table thead th {
+    background-color: #004d40;
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+#results-table tbody tr:nth-child(even) {
+    background-color: #f8f8f8;
+}
+
+#results-table tbody tr:hover {
+    background-color: #eef;
+    cursor: pointer;
+}
+
+#results-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.hidden {
+    display: none;
+}
+
+#no-results-message {
+    text-align: center;
+    font-style: italic;
+    color: #777;
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    border: 1px dashed #ccc;
+}
+
+.buy-btn {
+    background-color: #00796b;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.buy-btn:hover {
+    background-color: #004d40;
+}

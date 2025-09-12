@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recuperação de Senha</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f2f5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .container {
+      background: white;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      width: 100%;
+      max-width: 400px;
+      position: relative;
+      overflow: hidden;
+    }
+    h2 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 20px;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.5s ease-in-out;
+    }
+    input {
+      padding: 12px;
+      margin: 8px 0;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    button {
+      padding: 12px;
+      margin-top: 10px;
+      background: #28a745;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    button:hover {
+      background: #218838;
+    }
+    .message {
+      text-align: center;
+      margin-top: 15px;
+      color: green;
+    }
+    .link {
+      text-align: center;
+      margin-top: 10px;
+      color: black;
+      cursor: pointer;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Formulário Esqueceu a Senha -->
+    <form id="forgotForm">
+      <h2>Recuperar Senha</h2>
+      <input type="email" id="emailForgot" placeholder="Digite seu email" required>
+      <button type="submit">Enviar Código</button>
+      <p class="link" id="toReset">Já recebeu o código? Redefinir senha</p>
+      <p class="message" id="messageForgot"></p>
+    </form>
+
+    <!-- Formulário Redefinir Senha -->
+    <form id="resetForm" style="display: none;">
+      <h2>Redefinir Senha</h2>
+      <input type="email" id="emailReset" placeholder="Digite seu email" required>
+      <input type="text" id="codeReset" placeholder="Digite o código recebido" required>
+      <input type="password" id="newPassword" placeholder="Nova senha" required>
+      <button type="submit">Redefinir Senha</button>
+      <p class="link" id="toForgot">Voltar</p>
+      <p class="message" id="messageReset"></p>
+    </form>
+  </div>
+
+  <script>
+    // Seleção de elementos
+    const forgotForm = document.getElementById("forgotForm");
+    const resetForm = document.getElementById("resetForm");
+    const toReset = document.getElementById("toReset");
+    const toForgot = document.getElementById("toForgot");
+    const messageForgot = document.getElementById("messageForgot");
+    const messageReset = document.getElementById("messageReset");
+
+    // Transição para Redefinir Senha
+    toReset.addEventListener("click", () => {
+      forgotForm.style.display = "none";
+      resetForm.style.display = "flex";
+      messageForgot.textContent = "";
+    });
+
+    // Voltar para Recuperar Senha
+    toForgot.addEventListener("click", () => {
+      resetForm.style.display = "none";
+      forgotForm.style.display = "flex";
+      messageReset.textContent = "";
+    });
+
+    // Validação formulário "Esqueceu a senha"
+    forgotForm.addEventListener("submit", function(e) {
+      e.preventDefault();
+      const email = document.getElementById("emailForgot").value;
+      if(email) {
+        messageForgot.textContent = Se houver conta com ${email}, um código foi enviado!;
+        messageForgot.style.color = "green";
+        forgotForm.reset();
+      } else {
+        messageForgot.textContent = "Digite um email válido.";
+        messageForgot.style.color = "red";
+      }
+    });
+
+    // Validação formulário "Redefinir senha"
+    resetForm.addEventListener("submit", function(e) {
+      e.preventDefault();
+      const email = document.getElementById("emailReset").value;
+      const code = document.getElementById("codeReset").value;
+      const newPassword = document.getElementById("newPassword").value;
+
+      if(email && code && newPassword) {
+        messageReset.textContent = "Senha redefinida com sucesso!";
+        messageReset.style.color = "green";
+        resetForm.reset();
+      } else {
+        messageReset.textContent = "Preencha todos os campos corretamente.";
+        messageReset.style.color = "red";
+      }
+    });
+  </script>
+</body>
+</html>
