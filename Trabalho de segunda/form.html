@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - Plataforma de Viagens e Experiências</title>
+  <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+          <div class="logo">
+            <h3>Igapó Viagens</h3>
+          </div>
+          <ul class="menu">
+            <li><a href="index.html">Início</a></li>
+            <li><a href="form.html">Agendamento</a></li>
+            <li><a href="login.html">Login</a></li>
+          </ul>
+        </nav>
+      </header>
+
+    <section class="booking-form">
+        <h2>Reserve sua passagem</h2>
+        <form id="booking-form" action="#" method="POST"> 
+          
+          <div class="form-group">
+            <label for="route">Selecione a Rota:</label>
+            <select id="route" name="route" required>
+              <option value="">-- Escolha um destino --</option>
+              <option value="Manaus-Novo Airão">Manaus -> Novo Airão</option>
+              <option value="Manaus-Parintins">Manaus -> Parintins</option>
+              <option value="Manaus-Tefé">Manaus -> Tefé</option>
+              <option value="Manaus-Barcelos">Manaus -> Barcelos</option>
+              <option value="Manaus-Barrerinha">Manaus -> Barrerinha</option>
+              <option value="Manaus-Anóri">Manaus -> Anóri</option>
+              </select>
+          </div>
+          <div class="form-group">
+            <label for="boat-type">Tipo de Embarcação:</label>
+            <select id="boat-type" name="boat-type">
+              <option value="">Todos os tipos de barco</option>
+              <option value="Lancha Rápida">Lancha Rápida</option>
+              <option value="Barco Regional">Barco Regional</option>
+              <option value="Barco de Luxo">Barco de Luxo</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label for="departure-date">Data de Partida:</label>
+            <input type="date" id="departure-date" name="departure-date" required>
+          </div>
+
+          <div class="form-group">
+            <label for="return-date">Data de Retorno (Opcional):</label>
+            <input type="date" id="return-date" name="return-date">
+          </div>
+          
+          <div class="form-group">
+            <label for="passengers">Número de Passageiros:</label>
+            <input type="number" id="passengers" name="passengers" min="1" max="10" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="name">Nome Completo:</label>
+            <input type="text" id="name" name="name" placeholder="Seu nome" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" name="email" placeholder="Seu e-mail" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="phone">Telefone:</label>
+            <input type="tel" id="phone" name="phone" placeholder="(92) 99999-9999" required>
+          </div>
+          
+          <div class="form-group">
+            <button type="submit" class="btn-submit">Pesquisar Passagens</button>
+          </div>
+          
+        </form>
+      </section>
+    
+      <footer class="rodape">
+        <div>
+          <h3>QUEM SOMOS</h3>
+          <P>Somos a maior plataforma de viagens fluviais do Amazonas. Agende sua passagem com quem mais entende do assunto. Nossos agentes terão o prazer em atendê-lo. Igapó Viagens, desde 2020.</P>
+        </div>
+        <div>
+          <h3>MAPA DO SITE</h3>
+          <a href="index.html">Início</a>
+          <a href="precos.html">Destinos</a>
+          <a href="form.html">Agendamento</a>
+          <a href="login.html">Login</a>
+        </div>
+        <div>
+          <h3>CONTATO</h3>
+          <p>(92) 99999-9999</p>
+          <p>(92) 99999-9999</p>
+        </div>
+        <div>
+          <h3>ENDEREÇOS</h3>
+          <p>Rua Exemplo, Nº 1234, Centro - Manaus - Am</p>
+        </div>
+        <div class="social-icons">
+          <a href="#">
+            <img src="imagens/logotipo-do-instagram.png" alt="Instagram">
+          </a>
+          <a href="#">
+            <img src="imagens/whatsapp.png" alt="WhatsApp">
+          </a>
+          <a href="#">
+            <img src="imagens/facebook (1).png" alt="Facebook">
+          </a>
+        </div>
+      </footer>
+
+  <script src="js/form.js"></script>
+
+</body>
+</html>

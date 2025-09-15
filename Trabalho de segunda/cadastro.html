@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro - Igapó Viagens</title>
+  <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+
+  <header>
+    <nav class="navbar">
+      <div class="logo">
+        <h3>Igapó Viagens</h3>
+      </div>
+      <ul class="menu">
+        <li><a href="index.html">Início</a></li>
+        <li><a href="form.html">Agendamento</a></li>
+        <li><a href="login.html">Login</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="booking-form">
+    <h2>Crie sua conta</h2>
+    <form id="register-form" action="#" method="POST"> 
+      
+      <div class="form-group">
+        <label for="full-name">Nome Completo:</label>
+        <input type="text" id="full-name" name="full-name" placeholder="Seu nome completo" required>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" placeholder="seu-email@exemplo.com" required>
+      </div>
+      
+      <div class="form-group">
+        <label for="phone">Telefone:</label>
+        <input type="tel" id="phone" name="phone" placeholder="(92) 99999-9999" required>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Crie uma Senha:</label>
+        <input type="password" id="password" name="password" placeholder="Mínimo 8 caracteres" required>
+      </div>
+
+      <div class="form-group">
+        <label for="confirm-password">Confirme a Senha:</label>
+        <input type="password" id="confirm-password" name="confirm-password" placeholder="Repita sua senha" required>
+      </div>
+      
+      <div class="form-group">
+        <button type="submit" class="btn-submit">Cadastrar</button>
+      </div>
+      
+      <p class="login-link">Já tem uma conta? <a href="login.html">Faça login</a></p>
+
+    </form>
+  </section>
+
+  <footer class="rodape">
+    <div>
+      <h3>QUEM SOMOS</h3>
+      <P>Somos a maior plataforma de viagens fluviais do Amazonas. Agende sua passagem com quem mais entende do assunto. Nossos agentes terão o prazer em atendê-lo. Igapó Viagens, desde 2020.</P>
+    </div>
+    <div>
+      <h3>MAPA DO SITE</h3>
+      <a href="index.html">Início</a>
+      <a href="precos.html">Destinos</a>
+      <a href="form.html">Agendamento</a>
+      <a href="login.html">Login</a>
+    </div>
+    <div>
+      <h3>CONTATO</h3>
+      <p>(92) 99999-9999</p>
+      <p>(92) 99999-9999</p>
+    </div>
+    <div>
+      <h3>ENDEREÇOS</h3>
+      <p>Rua Exemplo, Nº 1234, Centro - Manaus - Am</p>
+    </div>
+    <div class="social-icons">
+      <a href="#"><img src="imagens/logotipo-do-instagram.png" alt="Instagram"></a>
+      <a href="#"><img src="imagens/whatsapp.png" alt="Whatsapp"></a>
+      <a href="#"><img src="imagens/facebook.png" alt="Facebook"></a>
+    </div>
+  </footer>
+
+</body>
+</html>
